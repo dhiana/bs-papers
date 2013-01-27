@@ -358,7 +358,7 @@ Esta ferramenta foi importante para validar a correta recuperação dos dados em
 A distribuição para a deposição de energia de múons provenientes de raios cósmicos prevista pela teoria é uma convolução de landau com gaussiana. No entanto, é esperada também uma distribuição gaussiana em faixas de baixa energia referente ao pedestal, que por sua vez representa regiões erroneamente selecionadas pelo primeiro nível de filtragem e, desta maneira, deve estar fora do alcance do fitting de energia para raios cósmicos.
 O fitting realizado (Figura~\ref{fig:rc_fit}) obteve uma alta probabilidade de ser o correto para a distribuição obtida experimentalmente.
 
-A área ao redor do MPV (most probable value - valor mais provável) da distribuição de raios cósmicos está relacionada com regiões onde a interação dos raios cósmicos foi através da ionização dos átomos do meio, justificando sua alta densidade de ocorrências e baixo valor de energia.
+A área ao redor do MPV (valor mais provável) da distribuição em energia transversa de raios cósmicos está relacionada com regiões onde a interação dos raios cósmicos foi através da ionização dos átomos do meio, justificando sua alta densidade de ocorrências e baixo valor de energia.
 Já a longa cauda desta distribuição está relacionada a interações mais energéticas e menos frequentes como as que ocorrem por processos radioativos.
 
 Quanto às distribuições de eta e phi, pode-se observar que há maior densidade de eventos para valores correspondentes à região próxima ao eixo vertical central do detector ($\eta = 0$ e $\phi = \pm \frac{\pi}{2}$).
@@ -387,14 +387,24 @@ A região mais pronunciada ($\eta = -1.7, \phi = 0.4$), assim como algumas outra
 Elas são um reflexo do funcionamento inadequado da eletrônica do primeiro nível em baixas energias, uma vez que esta foi projetada para cortes em energia acima de 2 GeV.
 O problema se deve ao fato de que na rodada de funcionamento que gerou os dados utilizados foi utilizado um corte menor com fins de que fossem armazenados mais dados direcionados ao comissionamento do detector.
 
-Este fenômeno pode ser chamado de "eventos fantasmas" e não deverão ser levados em consideração para análises de eficiência dos algoritmos, uma vez que não estarão presentes em rodadas de colisionamento de partículas.
+Eventos com este fenômeno podem ser chamados de "eventos fantasmas" e não deverão ser levados em consideração para análises de eficiência dos algoritmos, uma vez que não estarão presentes em rodadas de colisionamento de partículas.
 A figura~\ref{fig:rc_low_et} ilustra a disposição da distribuição de energia nas 4 camadas do calorímetro eletromagnético para um "evento fantasma" onde os valores são ruídos da eletrônica do primeiro nível.
 
 \begin{figure}[htbp!]
  \centering
  \includegraphics[width=8cm,height=6cm]{Figs/cosmics/rc_low_et.eps}
- \caption{Distribuição espacial Eta x Phi nos calorímetros eletromagnéticos para um Evento Fantasma}
+ \caption{Distribuição da energia transversa em Eta x Phi nos calorímetros eletromagnéticos para um Evento Fantasma}
  \label{fig:rc_low_et}
+\end{figure}
+
+Já as outras regiões de irregularidade na distribuição eta x phi mostraram fazer parte do fenômeno chamado "hot cells" (Células Quentes).
+Nestes eventos pode-se observar defeitos em células específicas, onde apenas um grupo de células de uma determinada camada de um calorímetro acusa sinal enquanto as camadas restantes apresentam apenas ruído, como pode ser visto na figura~\ref{fig:rc_hot_em1}
+
+\begin{figure}[htbp!]
+ \centering
+ \includegraphics[width=8cm,height=6cm]{Figs/cosmics/rc_hot_em1.eps}
+ \caption{Distribuição da energia transversa em Eta x Phi nos calorímetros eletromagnéticos para um evento de Célula Quente}
+ \label{fig:rc_hot_em1}
 \end{figure}
 
 \section{Conclusões}
