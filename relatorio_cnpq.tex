@@ -33,7 +33,7 @@
 
 Neural Ringer: Filtragem Online Usando Calorimetria de Altas Energias e Redes Neurais
 
-O CERN (Organização Européia para a Investigação Nuclear) é um dos mais importantes centros de pesquisa da atualidade, envolvendo cientistas de diversos países.
+O CERN (Organização Europeia para a Investigação Nuclear) é um dos mais importantes centros de pesquisa da atualidade, envolvendo cientistas de diversos países.
 Com o objetivo de buscar respostas sobre o Universo, a organização é responsável pelo LHC (Grande Colisor de Hádrons), o maior colisor de partículas do mundo.
 Dentre os experimentos do LHC, o ATLAS é um detector de propósito geral cujo objetivo inclui a procura pelo Bóson de Higgs, partícula que validará o Modelo Padrão de partículas vigente se for observada experimentalmente.
 
@@ -51,16 +51,16 @@ Seu módulo de extração de características utiliza uma topologia anelar conc�
 O módulo de teste de hipóteses realiza a tomada de decisão aplicando técnicas de Redes Neurais a partir do resultado do módulo anterior.
 
 O trabalho realizado envolveu a refatoração do módulo de teste de hipóteses do Ringer.
-Seu algoritmo de propagação de rede neural foi reescrito de maneira mais simples, ágil, robusta e de acordo com os padrões da colaboração; atingingo uma performance de tempo dezenove vezes melhor que a implementação anterior.
+Seu algoritmo de propagação de rede neural foi reescrito de maneira mais simples, ágil, robusta e de acordo com os padrões da colaboração; atingindo uma performance de tempo dezenove vezes melhor que a implementação anterior.
 
-Adicionalmente, foram realizadas análises comparando o comportamento do Ringer e do T2Calo, pacote de referência para a seleção elétron/jato do segundo nível, com dados obtidos experimentalmente sem colisionamento de partículas pelo acelerador, onde Raios Cósmicos constituíram a principal fonte de excitação do sistema de calorimetria e representam eventos que devem ser rejeitados pelo sistema de filtragem.
+Adicionalmente, foram realizadas análises comparando o comportamento do Ringer e do T2Calo, pacote de referência para a seleção elétron/jato do segundo nível, com dados obtidos experimentalmente sem colisões de partículas pelo acelerador, onde Raios Cósmicos constituíram a principal fonte de excitação do sistema de calorimetria e representam eventos que devem ser rejeitados pelo sistema de filtragem.
 Os resultados obtidos foram fundamentais para comprovar que o trabalho realizado pela equipe mostra-se um potencial candidato para efetiva aplicação durante o experimento, tendo superado a eficiência de rejeição de Raios Cósmicos do T2Calo com 99.56\% frente a 98.21\% do T2Calo.
 
 \end{abstract}
 
 \section{Introdução}
 
-\subsection{CERN - Organização Européia para a Investigação Nuclear}
+\subsection{CERN - Organização Europeia para a Investigação Nuclear}
 
 O CERN é o maior centro de pesquisa de física de partículas do mundo, responsável por um complexo (Figura~\ref{fig:cern_acelerators} de seis aceleradores de partículas com diversas experiências associadas a eles.
 O CERN também é conhecido por ser onde a WWW (World Wide Web) foi criada, impulsionada pela necessidade de compartilhamento de informações entre os cientistas de diferentes partes do mundo.
@@ -117,7 +117,7 @@ A partir das informações do sistema de calorimetria é possível estimar o tip
 \begin{figure}[htbp!]
  \centering
  \includegraphics[width=8cm,height=6cm]{Figs/atlas/decay_chart.pdf}
- \caption{Decaímento de partículas nos detectores do ATLAS}
+ \caption{Decaimento de partículas nos detectores do ATLAS}
  \label{fig:decay_chart}
 \end{figure}
 
@@ -147,7 +147,7 @@ Ele está dividido em dois módulos executados em sequência: extração de cara
 O primeiro visa representar de maneira compacta o perfil do chuveiro gerado nas interações das partículas com as diferentes camadas dos calorímetros. 
 Já o segundo, utiliza as informações geradas pelo módulo antecedente para realizar a aprovação ou rejeição do evento.
 
-No módulo de extração de características, primeiramente é encontrada a célula de maior nível energético em cada camada e a partir delas são formados anéis concênticos (Figura~\ref{fig:rings}).
+No módulo de extração de características, primeiramente é encontrada a célula de maior nível energético em cada camada e a partir delas são formados anéis concêntricos (Figura~\ref{fig:rings}).
 Ao final do processo, as células pertencentes ao mesmo anel são somadas.
 Considerando-se as sete camadas, produz-se um total de 100 somas em anéis.
 Esta estratégia reduz a dimensão do evento sem comprometer a interpretação física do mesmo.
@@ -248,7 +248,7 @@ Este conjunto de fatores implicava em um alto custo de uso de memória e de temp
 
 \subsubsection{Nova Implementação}
 
-De maneira a atender os tipos de Redes Neurais treinadas pela equipe, a nova implementação do pacote provê suporte a uma propagação de redes Feed Forward com variável números de camadas, variável número de nós em cada camada e aplica tangente hiperbólica como função de ativação em todos os nós.
+De maneira a atender os tipos de Redes Neurais treinadas pela equipe, a nova implementação do pacote provê suporte a uma propagação de redes Feedforward com variável números de camadas, variável número de nós em cada camada e aplica tangente hiperbólica como função de ativação em todos os nós.
 
 Foi criada uma simples estrutura orientada a objeto de maneira a prover os seguintes benefícios:
 
@@ -281,7 +281,7 @@ A Figura~\ref{fig:new_tmvh_splot} nos mostra que foi mantida a consistência da 
 \begin{figure}[htbp!]
  \centering
  \includegraphics[width=8cm,height=6cm]{Figs/tmvh_refactoring/new_tmvh_splot.jpeg}
- \caption{Scater plot da saída da rede neural utilizando as implementações antiga e nova do TrigMultiVarHypo}
+ \caption{Scatter plot da saída da rede neural utilizando as implementações antiga e nova do TrigMultiVarHypo}
  \label{fig:new_tmvh_splot}
 \end{figure}
 
@@ -337,8 +337,8 @@ Desta maneira, eventos com dados de interações de Raios Cósmicos devem ser re
 \subsubsection{Aquisição de Dados}
 
 Os dados gerados pelo detector foram disponibilizados pela colaboração em arquivos ByteStream, que representam os dados assim como estavam na saída do sistema online de filtragem.
-No entanto, o formato NTuple é geralmente utilizado com o propósito de manipular os dados do experimento, uma vez que possibilita fácil e rápido acesso através do framework Root.
-Além disto, a ferramenta do Athena TrigRingerTools provê uma extensão do Matlab que recupera dados de NTuples e disponibiliza em formato próprio para convenientes operações com matrizes em tal ambiente.
+No entanto, o formato NTuple é geralmente utilizado com o propósito de manipular os dados do experimento, uma vez que possibilita fácil e rápido acesso através do framework ROOT.
+Além disto, a ferramenta TrigRingerTools provê uma extensão do Matlab que recupera dados de NTuples e disponibiliza em formato próprio para convenientes operações com matrizes em tal ambiente.
 
 Desta maneira, foi necessário transformar os arquivos ByteStream em NTuple mantendo a consistência dos dados.
 Dos possíveis métodos, o que obteve melhor resultado foi re-rodar o Athena utilizando os arquivos ByteStream como entrada e configurando o ambiente para armazenar os dados gerados em NTuples.
@@ -387,7 +387,7 @@ A região mais pronunciada ($\eta = -1.7, \phi = 0.4$), assim como algumas outra
 Elas são um reflexo do funcionamento inadequado da eletrônica do primeiro nível em baixas energias, uma vez que esta foi projetada para cortes em energia acima de 2 GeV.
 O problema se deve ao fato de que na rodada de funcionamento que gerou os dados utilizados foi utilizado um corte menor com fins de que fossem armazenados mais dados direcionados ao comissionamento do detector.
 
-Eventos com este fenômeno podem ser chamados de "eventos fantasmas" e não deverão ser levados em consideração para análises de eficiência dos algoritmos, uma vez que não estarão presentes em rodadas de colisionamento de partículas.
+Eventos com este fenômeno podem ser chamados de "eventos fantasmas" e não deverão ser levados em consideração para análises de eficiência dos algoritmos, uma vez que não estarão presentes em rodadas de colisão de partículas.
 A figura~\ref{fig:rc_low_et} ilustra a disposição da distribuição de energia nas 4 camadas do calorímetro eletromagnético para um "evento fantasma" onde os valores são ruídos da eletrônica do primeiro nível.
 
 \begin{figure}[htbp!]
@@ -424,7 +424,7 @@ Desta maneira, o trabalho da equipe mostra-se um potencial candidato para efetiv
 
 \appendix
 
-\section{Resumo de Trabalho Aprovado no XXX Encontro Nacional de Física de Particulas e Campos}
+\section{Resumo de Trabalho Aprovado no XXX Encontro Nacional de Física de Partículas e Campos}
 
 \begin{figure}[htbp!]
  \includegraphics[scale=0.8,keepaspectratio=true,clip=true,trim=55px 300px 50px 50px]{Figs/abstracts/enfpc_xxx/R0258-3.pdf}
@@ -432,7 +432,7 @@ Desta maneira, o trabalho da equipe mostra-se um potencial candidato para efetiv
 
 \clearpage
 
-\section{Resumo de Trabalho Aprovado no XXXI Encontro Nacional de Física de Particulas e Campos}
+\section{Resumo de Trabalho Aprovado no XXXI Encontro Nacional de Física de Partículas e Campos}
 
 \begin{figure}[hb]
  \includegraphics[scale=0.8,keepaspectratio=true,clip=true,trim=55px 300px 50px 50px]{Figs/abstracts/enfpc_xxxi/R0220-4.pdf}
@@ -440,7 +440,7 @@ Desta maneira, o trabalho da equipe mostra-se um potencial candidato para efetiv
 
 \clearpage
 
-\section{Resumo de Trabalho Aprovado no XXXII Encontro Nacional de Física de Particulas e Campos}
+\section{Resumo de Trabalho Aprovado no XXXII Encontro Nacional de Física de Partículas e Campos}
 
 \begin{figure}[htbp!]
  \includegraphics[scale=0.8,keepaspectratio=true,clip=true,trim=55px 300px 50px 50px]{Figs/abstracts/enfpc_xxxii/R3377-2.pdf}
