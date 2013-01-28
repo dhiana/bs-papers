@@ -205,7 +205,7 @@ Vale ressaltar que, apesar de ser possível realizar análises interativamente c
 
 \section{Relatório de Atividades}
 
-\subsection{Refatoração do Pacote TrigMultiVarHypo}
+\subsection{Refatoração do módulo de Teste de Hipóteses}
 
 A aluna foi responsável pela refatoração do pacote TrigMultiVarHypo, o módulo de teste de hipótese do pacote Ringer.
 
@@ -419,6 +419,32 @@ Além disto, vale ressaltar que o algoritmo mostrou-se robusto aos fenômenos ap
  \caption{Distribuição da energia transversa em Eta x Phi nos calorímetros eletromagnéticos para um evento de Célula Quente}
  \label{fig:cosmics_rejection_effics}
 \end{figure}
+
+\subsection{Refatoração do módulo de Extração de Características}
+
+A aluna também realizou uma refatoração no módulo de Extração de Características visando facilitar pesquisas com diferentes configurações do algoritmo e melhorar o tempo de execução do mesmo.
+
+\subsubsection{Mudança na etapa de normalização}
+
+A normalização é uma etapa fundamental na qual os dados de entrada de uma rede neural são pré-processados para que os valores encaixem melhor no alcance dinâmico da rede.
+
+O Ringer aceita diferentes métodos de normalização.
+É muito importante realizar análises comparando a eficiência destes métodos.
+No entanto, como essa etapa era realizada no módulo de extração de características, os anéis eram serializados já normalizados.
+Desta maneira, para se testar uma nova configuração de normalização, era necessário re-rodar o Athena a partir de dados brutos, que não são de acesso fácil.
+
+Para isso, a etapa de normalização, que era realizada no módulo RingerFex foi movida para o módulo de testes de hipóteses TrigRingerNeuralHypo. A figura~\ref{fig:move_normalization} ilustra de maneira simplificada os módulos e suas relações.
+
+\begin{figure}[htbp!]
+ \centering
+ \includegraphics[width=12cm,height=8cm]{Figs/egamma_refactoring/move_normalization.png}
+ \caption{Diagrama simplificado da organização dos módulos após a refatoração}
+ \label{fig:move_normalization}
+\end{figure}
+
+Com esta mudança, os anéis passaram a ser serializados não-normalizados, permitindo análises posteriores usando diferentes configurações do algoritmo.
+Adicionalmente, as mudanças incluíram suporte à configuração "re-run hypo" do Framework, útil para análises rápidas rodando apenas o teste de hipóteses.
+
 
 \section{Conclusões}
 
