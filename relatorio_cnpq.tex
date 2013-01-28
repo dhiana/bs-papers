@@ -63,6 +63,7 @@ Os resultados obtidos foram fundamentais para comprovar que o trabalho realizado
 \subsection{CERN - Organização Europeia para a Investigação Nuclear}
 
 O CERN é o maior centro de pesquisa de física de partículas do mundo, responsável por um complexo (Figura~\ref{fig:cern_acelerators} de seis aceleradores de partículas com diversas experiências associadas a eles.
+
 O CERN também é conhecido por ser onde a WWW (World Wide Web) foi criada, impulsionada pela necessidade de compartilhamento de informações entre os cientistas de diferentes partes do mundo.
 
 \begin{figure}[htbp!]
@@ -77,7 +78,7 @@ O CERN também é conhecido por ser onde a WWW (World Wide Web) foi criada, impu
 Localizando-se em um túnel de vinte e sete quilômetros de circunferência a cerca de cem metros de profundidade na fronteira entre a França e a Suíça, o LHC é o maior e mais poderoso acelerador de partículas existente no mundo, atingindo colisões de valores energéticos nunca antes obtidos em ambientes controlados.
 Desta maneira, será possível recriar condições semelhantes aos instantes imediatamente posteriores ao fenômeno do Big Bang.
 
-Atualmente o LHC (Figura~\ref{fig:top_view_lhc}) possui sete experimentos: ATLAS, CMS, ALICE, LHCb, TOTEM, LHCf e o mais recentemente aprovado MoEDAL.
+O LHC (Figura~\ref{fig:top_view_lhc}) possui sete experimentos: ATLAS, CMS, ALICE, LHCb, TOTEM, LHCf e MoEDAL.
 Os dois primeiros são detectores de propósito geral, que visam investigar uma vasta gama de físicas de interesse. Os restantes possuem propósitos mais específicos como investigação de partículas exóticas, antimatérias e raios cósmicos.
 
 \begin{figure}[htbp!]
@@ -102,6 +103,7 @@ Para representar espacialmente o detetor são utilizadas as coordenadas $\eta$ e
 \end{figure}
 
 O detector possui diferentes módulos que atuam na observação de variados aspectos dos produtos das colisões (Figura~\ref{fig:atlas_detector}).
+
 Um importante módulo é o sistema de calorimetria, responsável pela medição de energia das partículas incidentes.
 Este sistema é composto pelos calorímetros eletromagnético e hadrônico, somando ao todo sete camadas com diferentes granularidades.
 
@@ -150,6 +152,7 @@ Já o segundo, utiliza as informações geradas pelo módulo antecedente para re
 No módulo de extração de características, primeiramente é encontrada a célula de maior nível energético em cada camada e a partir delas são formados anéis concêntricos (Figura~\ref{fig:rings}).
 Ao final do processo, as células pertencentes ao mesmo anel são somadas.
 Considerando-se as sete camadas, produz-se um total de 100 somas em anéis.
+
 Esta estratégia reduz a dimensão do evento sem comprometer a interpretação física do mesmo.
 
 \begin{figure}[htbp!]
@@ -160,6 +163,8 @@ Esta estratégia reduz a dimensão do evento sem comprometer a interpretação f
 \end{figure}
 
 Os anéis produzidos alimentam o módulo de teste de hipótese, que utiliza redes neurais artificias para a tomada de decisão, permitindo ganhos de eficiência de detecção quando comparados à mecanismos lineares de decisão, como o EgammaHypo, algoritmo de seleção elétron/jato de referência na colaboração.
+
+\clearpage
 
 \section{Tecnologias Utilizadas}
 
@@ -179,17 +184,22 @@ O mesmo possui nativamente um interpretador C++, além de possibilitar acesso at
 \subsection{Python}
 
 Por ser uma linguagem de alto nível, interpretada, orientada a objetos e com sintaxe facilitada, o Python, ao longo do trabalho realizado, foi a interface mais utilizada para a análise de dados usando o PyROOT.
+
 Além disto, a linguagem é padrão para configuração dos algoritmos do framework Athena e desta maneira foi utilizada também em sua utilização.
 
 \subsection{C++}
 
 O desenvolvimento de algoritmos no Athena é realizado utilizando o C++, uma linguagem de programação compilada, fortemente tipada, de nível médio, orientada a objetos e, atendendo os requisitos das aplicações, de alto desempenho.
+
 Esta linguagem é de uso bastante popular, desde estudantes até mesmo grandes empresas como Microsoft e Google a utilizam para a implementação de seus softwares.
 
 \subsection{Matlab}
 
 A ferramenta Matlab foi utilizada para a análise de dados e simulação de rede neural por utilizar uma linguagem interpretada de alto nível dirigida para computação técnica, sendo portanto de rápida e eficiente utilização.
+
 Gráficos e cálculos numéricos são obtidos de maneira muito mais fácil do que ao utilizar linguagens de programação como C++ ou python.
+
+\clearpage
 
 \section{Metodologia}
 
@@ -197,11 +207,15 @@ Por se tratar de uma colaboração internacional, os códigos foram desenvolvido
 Também nesta linguagem, foi redigida uma documentação através da ferramenta de escrita colaborativa padrão do CERN - TWiki de maneira a proporcionar à comunidade científica um fácil acesso às informações sobre o pacote Ringer.
 
 Além disto, vale ressaltar que os códigos desenvolvidos para o Athena foram implementados de maneira a gastar o menor tempo e custo computacional possível.
+
 Já os scripts de análise de dados foram desenvolvidos priorizando a melhor representação das informações que podem ser extraídas dos dados, além de um desenvolvimento ágil.
 
 Desta maneira os scripts de análises de dados foram desenvolvidos inicialmente em Matlab, pela sua fácil e rápida obtenção de resultados.
 No entanto, para disponibilizar as análises para a colaboração, as mesmas foram reproduzidas em ambiente PyROOT.
+
 Vale ressaltar que, apesar de ser possível realizar análises interativamente com Matlab e PyROOT, as análises foram realizadas com o desenvolvimento de scripts altamente configuráveis de maneira a possibilitar o reaproveitamento dos mesmos durante a realização do trabalho e até mesmo para futuras análises.
+
+\clearpage
 
 \section{Relatório de Atividades}
 
@@ -314,9 +328,13 @@ Somado a isto, também pode ser observado através da figura~\ref{fig:new_tmvh_m
  \label{fig:new_tmvh_maloc}
 \end{figure}
 
-\subsection{Análises com Dados Experimentais}
+\clearpage
 
-Foi realizada a aquisição e análise de dados experimentais obtidos em rodadas de funcionamento do ATLAS sem eventos de colisão. Neste contexto, a principal fonte de excitação do sistema de calorimetria são raios cósmicos, que são formados por partículas que viajam em velocidades próximas à da luz sendo compostos majoritariamente por prótons.
+\subsection{Análises com Dados Experimentais de Raios Cósmicos}
+
+Foi realizada a aquisição e análise de dados experimentais obtidos em rodadas de funcionamento do ATLAS sem eventos de colisão.
+Neste contexto, a principal fonte de excitação do sistema de calorimetria são raios cósmicos, que são formados por partículas que viajam em velocidades próximas à da luz sendo compostos majoritariamente por prótons.
+
 Conforme os Raios Cósmicos penetram na atmosfera, eles sofrem interações com moléculas de gases atmosféricos e, desta maneira, dão origem a novas partículas (Figura~\ref{fig:rc_sky}). 
 
 \begin{figure}[htbp!]
@@ -337,7 +355,9 @@ Desta maneira, eventos com dados de interações de Raios Cósmicos devem ser re
 \subsubsection{Aquisição de Dados}
 
 Os dados gerados pelo detector foram disponibilizados pela colaboração em arquivos ByteStream, que representam os dados assim como estavam na saída do sistema online de filtragem.
+
 No entanto, o formato NTuple é geralmente utilizado com o propósito de manipular os dados do experimento, uma vez que possibilita fácil e rápido acesso através do framework ROOT.
+
 Além disto, a ferramenta TrigRingerTools provê uma extensão do Matlab que recupera dados de NTuples e disponibiliza em formato próprio para convenientes operações com matrizes em tal ambiente.
 
 Desta maneira, foi necessário transformar os arquivos ByteStream em NTuple mantendo a consistência dos dados.
@@ -355,7 +375,8 @@ Esta ferramenta foi importante para validar a correta recuperação dos dados em
 
 \subsubsection{Distribuições de Energia, Eta e Phi}
 
-A distribuição para a deposição de energia de múons provenientes de raios cósmicos prevista pela teoria é uma convolução de landau com gaussiana. No entanto, é esperada também uma distribuição gaussiana em faixas de baixa energia referente ao pedestal, que por sua vez representa regiões erroneamente selecionadas pelo primeiro nível de filtragem e, desta maneira, deve estar fora do alcance do fitting de energia para raios cósmicos.
+A distribuição para a deposição de energia de múons provenientes de raios cósmicos prevista pela teoria é uma convolução de landau com gaussiana.
+No entanto, é esperada também uma distribuição gaussiana em faixas de baixa energia referente ao pedestal, que por sua vez representa regiões erroneamente selecionadas pelo primeiro nível de filtragem e, desta maneira, deve estar fora do alcance do fitting de energia para raios cósmicos.
 O fitting realizado (Figura~\ref{fig:rc_fit}) obteve uma alta probabilidade de ser o correto para a distribuição obtida experimentalmente.
 
 A área ao redor do MPV (valor mais provável) da distribuição em energia transversa de raios cósmicos está relacionada com regiões onde a interação dos raios cósmicos foi através da ionização dos átomos do meio, justificando sua alta densidade de ocorrências e baixo valor de energia.
@@ -385,7 +406,8 @@ Para verificar a correlação dos picos foi então analisada a distribuição es
 Uma vez que as irregularidades encontradas não se encaixam com o previsto pela teoria, as mesmas foram investigadas.
 A região mais pronunciada ($\eta = -1.7, \phi = 0.4$), assim como algumas outras menos pronunciadas, apresentam alta densidade de ocorrência de valores energéticos abaixo de 1GeV.
 Elas são um reflexo do funcionamento inadequado da eletrônica do primeiro nível em baixas energias, uma vez que esta foi projetada para cortes em energia acima de 2 GeV.
-O problema se deve ao fato de que na rodada de funcionamento que gerou os dados utilizados foi utilizado um corte menor com fins de que fossem armazenados mais dados direcionados ao comissionamento do detector.
+
+O problema se deve ao fato de que na rodada de funcionamento que gerou os dados analisados foi utilizado um corte menor com fins de que fossem armazenados mais dados direcionados ao comissionamento do detector.
 
 Eventos com este fenômeno podem ser chamados de "eventos fantasmas" e não deverão ser levados em consideração para análises de eficiência dos algoritmos, uma vez que não estarão presentes em rodadas de colisão de partículas.
 A figura~\ref{fig:rc_low_et} ilustra a disposição da distribuição de energia nas 4 camadas do calorímetro eletromagnético para um "evento fantasma" onde os valores são ruídos da eletrônica do primeiro nível.
@@ -420,6 +442,8 @@ Além disto, vale ressaltar que o algoritmo mostrou-se robusto aos fenômenos ap
  \label{fig:cosmics_rejection_effics}
 \end{figure}
 
+\clearpage
+
 \subsection{Refatoração do módulo de Extração de Características}
 
 A aluna também realizou uma refatoração no módulo de Extração de Características visando facilitar pesquisas com diferentes configurações do algoritmo e melhorar o tempo de execução do mesmo.
@@ -431,6 +455,7 @@ A normalização é uma etapa fundamental na qual os dados de entrada de uma red
 O Ringer aceita diferentes métodos de normalização.
 É muito importante realizar análises comparando a eficiência destes métodos.
 No entanto, como essa etapa era realizada no módulo de extração de características, os anéis eram serializados já normalizados.
+
 Desta maneira, para se testar uma nova configuração de normalização, era necessário re-rodar o Athena a partir de dados brutos, que não são de acesso fácil.
 
 Para isso, a etapa de normalização, que era realizada no módulo RingerFex foi movida para o módulo de testes de hipóteses TrigRingerNeuralHypo. A figura~\ref{fig:move_normalization} ilustra de maneira simplificada os módulos e suas relações.
@@ -469,6 +494,8 @@ A unificação destes métodos em conjunto com a otimização guiada pela ferram
  \end{tabular}
 \end{table}
 
+\clearpage
+
 \subsection{Apresentação do impacto da ativação do Ringer}
 
 A figura~\ref{fig:egamma_ringer_time_optimization} mostra a diferença no impacto do tempo de execução do T2Calo com e sem o Ringer.
@@ -494,6 +521,8 @@ A figura~\ref{fig:aod_payload} mostra que o impacto é de menos de 6\% por event
 A aluna apresentou estes resultados em dois encontros no CERN: Trigger HLT Meeting e Trigger Egamma Meeting.
 Esta divulgação foi fundamental para a ativação do Ringer em cadeias de algoritmos que são rodadas durante o experimento.
 Desta maneira, foi facilitada a obtenção de dados para estudos com dados experimentais de colisão.
+
+\clearpage
 
 \section{Conclusões}
 
