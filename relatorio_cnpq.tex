@@ -445,6 +445,39 @@ Para isso, a etapa de normalização, que era realizada no módulo RingerFex foi
 Com esta mudança, os anéis passaram a ser serializados não-normalizados, permitindo análises posteriores usando diferentes configurações do algoritmo.
 Adicionalmente, as mudanças incluíram suporte à configuração "re-run hypo" do Framework, útil para análises rápidas rodando apenas o teste de hipóteses.
 
+\subsubsection{Otimizações na etapa de extração dos anéis}
+
+A extração de cem anéis a partir de mais de mil células do sistema de calorimetria é um grande desafio técnico.
+O algoritmo RingerFex era estruturado fortemente orientado a objetos, com métodos específicos para cada propósito.
+No entanto, a partir de análises detalhadas usando a ferramenta Calgrind de análise de códigos foram identificadas iterações que poderiam ser otimizadas, cálculos que poderiam ser economizados e os custos do código estar fortemente modularizado.
+
+Desta maneira, foram unificados os métodos de:
+\begin{itemize}
+ \item Extração das células das diferentes camadas dos calorímetros
+ \item Identificação da célula mais energética de cada camada
+ \item Construção dos anéis
+\end{itemize}
+
+A unificação destes métodos em conjunto com a otimização guiada pela ferramenta de análise fez o algoritmo realizar um menor número de operações e operar 55\% mais rápido, de acordo com a tabela:
+
+\begin{table}[htbp!]
+ \centering
+ \title{\textbf{Tempo de Execução do RingerFex (ms)}}
+ \begin{tabular}{cc}
+  \hline Antiga Implementação & $ 0.6666 \pm 0.1699 $\\
+  \hline Nova Implementação & $ 0.2939 \pm 0.0703 $\\
+ \end{tabular}
+\end{table}
+
+Além disso, a figura~\ref{fig:egamma_ringer_time_optimization} mostra a diferença no impacto do tempo de execução do T2Calo com e sem o Ringer.
+Pode-se concluir que rodar o T2Calo com o Ringer adiciona menos de 0.3ms após as otimizações.
+
+\begin{figure}[htbp!]
+ \centering
+ \includegraphics[width=8cm,height=6cm]{Figs/egamma_refactoring/egamma_ringer_time_optimization.pdf}
+ \caption{Tempo total de execução do T2Calo comparando rodadas sem o Ringer, com o Ringer otimizado e com o antigo Ringer}
+ \label{fig:egamma_ringer_time_optimization}
+\end{figure}
 
 \section{Conclusões}
 
