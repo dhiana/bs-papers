@@ -31,11 +31,9 @@
 
 \begin{abstract}
 
-Neural Ringer: Filtragem Online Usando Calorimetria de Altas Energias e Redes Neurais
-
 O CERN (Organização Europeia para a Investigação Nuclear) é um dos mais importantes centros de pesquisa da atualidade, envolvendo cientistas de diversos países.
 Com o objetivo de buscar respostas sobre o Universo, a organização é responsável pelo LHC (Grande Colisor de Hádrons), o maior colisor de partículas do mundo.
-Dentre os experimentos do LHC, o ATLAS é um detector de propósito geral cujo objetivo inclui a procura pelo Bóson de Higgs, partícula que validará o Modelo Padrão de partículas vigente se for observada experimentalmente.
+Dentre os experimentos do LHC, o ATLAS é um detector de propósito geral cujo objetivo inclui análises sobre o Bóson de Higgs, partícula que valida o Modelo Padrão de partículas vigente.
 
 Como o ambiente em questão possui uma alta taxa de eventos e apenas uma parcela muito pequena destes representa informações de interesse físico, ele possui um sistema de filtragem online dividido em três níveis em cascata.
 O segundo nível, no qual o trabalho está inserido, é dividido em duas etapas consecutivas: extração de características e teste de hipótese.
@@ -50,11 +48,12 @@ Neste contexto, o Ringer é um pacote de algoritmos desenvolvido pela equipe da 
 Seu módulo de extração de características utiliza uma topologia anelar concêntrica realizada camada a camada para representar de forma compacta perfis de deposição de energia.
 O módulo de teste de hipóteses realiza a tomada de decisão aplicando técnicas de Redes Neurais a partir do resultado do módulo anterior.
 
-O trabalho realizado envolveu a refatoração do módulo de teste de hipóteses do Ringer.
-Seu algoritmo de propagação de rede neural foi reescrito de maneira mais simples, ágil, robusta e de acordo com os padrões da colaboração; atingindo uma performance de tempo dezenove vezes melhor que a implementação anterior.
+O trabalho realizado envolveu análises comparando o comportamento do Ringer e do T2Calo, pacote de referência para a seleção elétron/jato do segundo nível, com dados obtidos experimentalmente sem colisões de partículas pelo acelerador, onde Raios Cósmicos constituíram a principal fonte de excitação do sistema de calorimetria e representam eventos que devem ser rejeitados pelo sistema de filtragem.
+Os resultados obtidos comprovam que o trabalho realizado pela equipe mostra-se um potencial candidato para efetiva aplicação durante o experimento, tendo superado a eficiência de rejeição de Raios Cósmicos do T2Calo com 99.56\% frente a 98.21\% do T2Calo.
 
-Adicionalmente, foram realizadas análises comparando o comportamento do Ringer e do T2Calo, pacote de referência para a seleção elétron/jato do segundo nível, com dados obtidos experimentalmente sem colisões de partículas pelo acelerador, onde Raios Cósmicos constituíram a principal fonte de excitação do sistema de calorimetria e representam eventos que devem ser rejeitados pelo sistema de filtragem.
-Os resultados obtidos foram fundamentais para comprovar que o trabalho realizado pela equipe mostra-se um potencial candidato para efetiva aplicação durante o experimento, tendo superado a eficiência de rejeição de Raios Cósmicos do T2Calo com 99.56\% frente a 98.21\% do T2Calo.
+Adicionalmente, foram realizadas refatorações e otimizações guiadas por ferramentas de análise de código.
+O módulo de teste de hipóteses do Ringer foi reescrito de maneira mais simples, ágil, robusta e de acordo com os padrões da colaboração; atingindo uma performance de tempo dezenove vezes melhor que a implementação anterior.
+O módulo de extração de características foi otimizado e atingiu um tempo de execução 55\% mais rápido. Os resultados foram apresentados à colaboração e foram fundamentais para que o algoritmo seja adicionado a cadeias que são executadas com dados de colisão.
 
 \end{abstract}
 
