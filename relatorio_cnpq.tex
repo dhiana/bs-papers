@@ -469,7 +469,9 @@ A unificação destes métodos em conjunto com a otimização guiada pela ferram
  \end{tabular}
 \end{table}
 
-Além disso, a figura~\ref{fig:egamma_ringer_time_optimization} mostra a diferença no impacto do tempo de execução do T2Calo com e sem o Ringer.
+\subsection{Apresentação do impacto da ativação do Ringer}
+
+A figura~\ref{fig:egamma_ringer_time_optimization} mostra a diferença no impacto do tempo de execução do T2Calo com e sem o Ringer.
 Pode-se concluir que rodar o T2Calo com o Ringer adiciona menos de 0.3ms após as otimizações.
 
 \begin{figure}[htbp!]
@@ -478,6 +480,20 @@ Pode-se concluir que rodar o T2Calo com o Ringer adiciona menos de 0.3ms após a
  \caption{Tempo total de execução do T2Calo comparando rodadas sem o Ringer, com o Ringer otimizado e com o antigo Ringer}
  \label{fig:egamma_ringer_time_optimization}
 \end{figure}
+
+Além disso, foi realizada uma análise do impacto que serializar cem anéis tem sob a carga de dados a ser gravada em disco.
+A figura~\ref{fig:aod_payload} mostra que o impacto é de menos de 6\% por evento.
+
+\begin{figure}[htbp!]
+ \centering
+ \includegraphics[width=8cm,height=6cm]{Figs/egamma_refactoring/aod_payload.png}
+ \caption{}
+ \label{fig:egamma_ringer_time_optimization}
+\end{figure}
+
+A aluna apresentou estes resultados em dois encontros no CERN: Trigger HLT Meeting e Trigger Egamma Meeting.
+Esta divulgação foi fundamental para a ativação do Ringer em cadeias de algoritmos que são rodas durante o experimento.
+Desta maneira, foi facilitada a obtenção de dados para estudos com dados experimentais de colisão.
 
 \section{Conclusões}
 
